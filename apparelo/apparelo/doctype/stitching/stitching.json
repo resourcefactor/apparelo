@@ -1,0 +1,284 @@
+{
+ "actions": [],
+ "autoname": "Prompt",
+ "creation": "2019-10-03 13:22:36.708923",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_set_item",
+  "part",
+  "section_break_2",
+  "parts",
+  "get_piece_colour",
+  "column_break_5",
+  "piece_colours",
+  "is_part_colour_same_as_piece_colour",
+  "section_break_7",
+  "colour_mappings",
+  "parts_per_piece",
+  "additional_information",
+  "section_break_12",
+  "enable_additional_parts",
+  "section_break_24",
+  "color_additional_items",
+  "get_piece_color",
+  "column_break_15",
+  "piece_colors",
+  "is_part_color_same_as_piece_color",
+  "section_break_18",
+  "additional_parts_colour",
+  "section_break_23",
+  "size_additional_items",
+  "get_piece_size",
+  "column_break_26",
+  "piece_sizes",
+  "is_part_size_same_as_piece_size",
+  "section_break_29",
+  "additional_parts_size",
+  "additional_parts",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "parts_per_piece",
+   "fieldtype": "Table",
+   "label": "Parts Per Piece",
+   "options": "Stitching Parts Per Piece",
+   "reqd": 1
+  },
+  {
+   "fieldname": "colour_mappings",
+   "fieldtype": "Table",
+   "label": "Colour Mappings",
+   "options": "Stitching Colour Mapping",
+   "reqd": 1
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "additional_parts",
+   "fieldtype": "Table",
+   "label": "Additional Parts",
+   "options": "Stitching Additional Part"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval: doc.__islocal",
+   "depends_on": "eval: doc.docstatus == 0",
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "parts",
+   "fieldtype": "Table MultiSelect",
+   "label": "Parts",
+   "options": "Cutting Part"
+  },
+  {
+   "fieldname": "get_piece_colour",
+   "fieldtype": "Button",
+   "label": "Get Piece colour"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "piece_colours",
+   "fieldtype": "Table MultiSelect",
+   "label": "Piece Colours",
+   "options": "Cutting Colors"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_part_colour_same_as_piece_colour",
+   "fieldtype": "Check",
+   "label": "is part colour same as piece colour"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "additional_information",
+   "fieldtype": "Table",
+   "label": "Additional Information",
+   "options": "Additional Information Table"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "additional_parts_colour",
+   "fieldtype": "Table",
+   "label": "Additional Parts Colour",
+   "options": "Additional Part Colour"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "additional_parts_size",
+   "fieldtype": "Table",
+   "label": "Additional Parts Size",
+   "options": "Additional Part Size"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Stitching",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_additional_parts",
+   "fieldtype": "Check",
+   "label": "Enable Additional Parts"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "get_piece_color",
+   "fieldtype": "Button",
+   "label": "Get Piece Color"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "piece_colors",
+   "fieldtype": "Table MultiSelect",
+   "label": "Piece Colors",
+   "options": "Cutting Colors"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_additional_parts",
+   "fieldname": "is_part_color_same_as_piece_color",
+   "fieldtype": "Check",
+   "label": "is part color same as piece color"
+  },
+  {
+   "collapsible_depends_on": "eval: doc.__islocal",
+   "depends_on": "enable_additional_parts",
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval: doc.__islocal",
+   "depends_on": "eval: doc.docstatus == 0 && doc.enable_additional_parts==1",
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval: doc.__islocal",
+   "depends_on": "eval: doc.docstatus == 0 && doc.enable_additional_parts == 1",
+   "fieldname": "section_break_23",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "get_piece_size",
+   "fieldtype": "Button",
+   "label": "Get Piece Size"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "piece_sizes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Piece Sizes",
+   "options": "Cutting Size"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_additional_parts",
+   "fieldname": "is_part_size_same_as_piece_size",
+   "fieldtype": "Check",
+   "label": "is part size same as piece size"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "section_break_29",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "color_additional_items",
+   "fieldtype": "Table MultiSelect",
+   "label": "Color Additional Items",
+   "options": "Additional Item"
+  },
+  {
+   "depends_on": "enable_additional_parts",
+   "fieldname": "size_additional_items",
+   "fieldtype": "Table MultiSelect",
+   "label": "Size Additional Items",
+   "options": "Additional Item"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_set_item",
+   "fieldtype": "Check",
+   "label": "Enable Set Item"
+  },
+  {
+   "depends_on": "eval: doc.enable_set_item==1",
+   "fieldname": "part",
+   "fieldtype": "Link",
+   "label": "Part",
+   "options": "Apparelo Part"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-08-17 19:07:37.581870",
+ "modified_by": "Administrator",
+ "module": "Apparelo",
+ "name": "Stitching",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

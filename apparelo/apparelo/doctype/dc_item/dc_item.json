@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "creation": "2020-01-09 16:18:39.227748",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "deliver_later",
+  "pf_item_code",
+  "item_code",
+  "available_quantity",
+  "quantity",
+  "primary_uom",
+  "secondary_qty",
+  "secondary_uom",
+  "delivery_location"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "available_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Available Qty",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Delivery Qty"
+  },
+  {
+   "fetch_from": "item_code.print_code",
+   "fieldname": "pf_item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "PF Item Code",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "primary_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Primary UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "secondary_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Secondary UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "depends_on": "eval: doc.secondary_uom",
+   "fieldname": "secondary_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Secondary Qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "deliver_later",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Deliver Later"
+  },
+  {
+   "depends_on": "deliver_later",
+   "fieldname": "delivery_location",
+   "fieldtype": "Link",
+   "label": "Delivery Location",
+   "mandatory_depends_on": "deliver_later",
+   "options": "Location"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-05-29 17:23:25.293221",
+ "modified_by": "Administrator",
+ "module": "Apparelo",
+ "name": "DC Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

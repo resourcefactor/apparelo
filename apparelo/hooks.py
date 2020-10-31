@@ -55,7 +55,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "apparelo.install.before_install"
-# after_install = "apparelo.install.after_install"
+after_install = "apparelo.install.after_install"
 
 # Desk Notifications
 # ------------------
@@ -79,13 +79,20 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Location": {
+		"after_insert": "apparelo.apparelo.doctype.lot_creation.custom_scripts.create_location_based_warehouse"
+	},
+	"Supplier": {
+		"after_insert": "apparelo.apparelo.doctype.lot_creation.custom_scripts.create_supplier_warehouse"
+	},
+	"Item": {
+		"validate": "apparelo.erpnext_hooks.populate_pf_item_code"
+	},
+	"Purchase Order": {
+		"validate": "apparelo.apparelo.doctype.lot_creation.custom_scripts.set_lot_link_field_in_po"
+		}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -126,4 +133,3 @@ app_license = "MIT"
 # override_doctype_dashboards = {
 # 	"Task": "apparelo.task.get_dashboard_data"
 # }
-

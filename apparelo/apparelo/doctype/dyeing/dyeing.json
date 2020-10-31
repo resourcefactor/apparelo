@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "autoname": "Prompt",
+ "creation": "2019-10-02 14:10:43.917330",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "colours",
+  "section_break_6",
+  "colour_shade_mapping",
+  "section_break_8",
+  "additional_information",
+  "conversion_details_section",
+  "input_qty",
+  "output_qty",
+  "column_break_5",
+  "input_uom",
+  "output_uom",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "colours",
+   "fieldtype": "Table",
+   "label": "Colours (*Deprecated)",
+   "options": "Item Production Detail Colour",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "conversion_details_section",
+   "fieldtype": "Section Break",
+   "label": "Conversion Details"
+  },
+  {
+   "default": "1",
+   "fieldname": "input_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Input Qty",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "output_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Output Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Kg",
+   "fieldname": "input_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Input UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "default": "Kg",
+   "fieldname": "output_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Output UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Dyeing",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "additional_information",
+   "fieldtype": "Table",
+   "label": "Additional Information",
+   "options": "Additional Information Table"
+  },
+  {
+   "fieldname": "colour_shade_mapping",
+   "fieldtype": "Table",
+   "label": "Colour Shade Mapping",
+   "options": "Colour Shade Mapping",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-07-13 17:52:27.739755",
+ "modified_by": "Administrator",
+ "module": "Apparelo",
+ "name": "Dyeing",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

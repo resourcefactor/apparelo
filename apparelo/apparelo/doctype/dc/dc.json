@@ -1,0 +1,325 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2019-12-27 08:11:17.494280",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "lot",
+  "process_1",
+  "supplier",
+  "location",
+  "expect_return_items_at",
+  "get_items",
+  "helper_section",
+  "select_helper",
+  "section_break_9",
+  "from_field",
+  "to_field",
+  "copy_over",
+  "section_break_13",
+  "items",
+  "delete_unavailable_delivery_items",
+  "get_return_item",
+  "section_break_18",
+  "colour",
+  "size",
+  "piece_count",
+  "make_entry",
+  "section_break_5",
+  "return_materials",
+  "delete_unavailable_return_items",
+  "calculate_delivery_quantity",
+  "printable_section_section",
+  "address_and_contact_section",
+  "supplier_address_name",
+  "supplier_address",
+  "column_break_14",
+  "company",
+  "company_address_name",
+  "company_address",
+  "section_break_15",
+  "dc_cloth_quantity",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lot",
+   "fieldtype": "Link",
+   "label": "Lot",
+   "options": "Lot Creation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Delivery Items",
+   "options": "DC Item"
+  },
+  {
+   "fieldname": "get_items",
+   "fieldtype": "Button",
+   "label": "Make DC"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "DC-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "get_return_item",
+   "fieldtype": "Button",
+   "label": "Calculate Expected Qty from Delivery Qty"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Return Materials"
+  },
+  {
+   "fieldname": "return_materials",
+   "fieldtype": "Table",
+   "label": "Items Expected in Return",
+   "options": "Return Materials"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "DC",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Delivery Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "process_1",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Process",
+   "options": "Apparelo Process",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expect_return_items_at",
+   "fieldtype": "Link",
+   "label": "Expect Return Items At",
+   "options": "Location"
+  },
+  {
+   "fieldname": "dc_cloth_quantity",
+   "fieldtype": "HTML Editor",
+   "label": "Dc Cloth Quantity"
+  },
+  {
+   "fieldname": "calculate_delivery_quantity",
+   "fieldtype": "Button",
+   "label": "Calculate Delivery Qty from Expected Qty"
+  },
+  {
+   "fieldname": "printable_section_section",
+   "fieldtype": "Section Break",
+   "label": "Printable Section"
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "address_and_contact_section",
+   "fieldtype": "Section Break",
+   "label": "Address and Contact"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company_address_name",
+   "fieldtype": "Link",
+   "label": "Company Address Name",
+   "options": "Address"
+  },
+  {
+   "fieldname": "company_address",
+   "fieldtype": "Small Text",
+   "label": "Company Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier_address_name",
+   "fieldtype": "Link",
+   "label": "Supplier Address Name",
+   "options": "Address"
+  },
+  {
+   "fieldname": "supplier_address",
+   "fieldtype": "Small Text",
+   "label": "Supplier Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "depends_on": "eval:doc.select_helper=='Copy Over' && doc.docstatus == 0",
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break",
+   "label": "Copy Over Section"
+  },
+  {
+   "fieldname": "from_field",
+   "fieldtype": "Select",
+   "label": "From Field"
+  },
+  {
+   "fieldname": "to_field",
+   "fieldtype": "Select",
+   "label": "To Field"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "delete_unavailable_delivery_items",
+   "fieldtype": "Button",
+   "label": "Delete Unavailable Delivery Items"
+  },
+  {
+   "fieldname": "delete_unavailable_return_items",
+   "fieldtype": "Button",
+   "label": "Delete Unavailable Return Items"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval: doc.docstatus == 0",
+   "fieldname": "helper_section",
+   "fieldtype": "Section Break",
+   "label": "Helper Section"
+  },
+  {
+   "fieldname": "select_helper",
+   "fieldtype": "Select",
+   "label": "Select Helper"
+  },
+  {
+   "depends_on": "eval:doc.process_1==\"Cutting\" && doc.docstatus == 0",
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break",
+   "label": "Cutting Section"
+  },
+  {
+   "fieldname": "colour",
+   "fieldtype": "Link",
+   "label": "Colour",
+   "options": "Apparelo Colour"
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Link",
+   "label": "Size",
+   "options": "Apparelo Size"
+  },
+  {
+   "fieldname": "piece_count",
+   "fieldtype": "Float",
+   "label": "Piece Count"
+  },
+  {
+   "fieldname": "copy_over",
+   "fieldtype": "Button",
+   "label": "Copy Over"
+  },
+  {
+   "fieldname": "make_entry",
+   "fieldtype": "Button",
+   "label": "Make Entry"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-07-16 21:43:30.707906",
+ "modified_by": "Administrator",
+ "module": "Apparelo",
+ "name": "DC",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Data Entry Operator",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Report Analyst",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "autoname": "Prompt",
+ "creation": "2019-10-05 14:12:57.223926",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "enable_set_item",
+  "based_on_style",
+  "size",
+  "colour",
+  "style",
+  "processes",
+  "final_process",
+  "additional_flows",
+  "section_break_7",
+  "is_combined_packing",
+  "combined_ipds",
+  "process_name",
+  "process_record",
+  "administrator_section_section",
+  "submit_internal_processes",
+  "ipd_submission_done",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "processes",
+   "fieldtype": "Table",
+   "label": "Processes",
+   "options": "Item Production Detail Process"
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Table",
+   "label": "sizes",
+   "options": "Item Production Detail Size"
+  },
+  {
+   "fieldname": "colour",
+   "fieldtype": "Table",
+   "label": "Colours",
+   "options": "Item Production Detail Colour"
+  },
+  {
+   "fieldname": "additional_flows",
+   "fieldtype": "Table",
+   "label": "Additional Flows",
+   "options": "Item Production Detail Additional BOM"
+  },
+  {
+   "fieldname": "final_process",
+   "fieldtype": "Select",
+   "label": "Final Process",
+   "options": "\nKnitting\nDyeing\nBleaching\nCompacting\nSteaming\nCutting\nPiece Printing\nStitching\nLabel Fusing\nChecking\nIroning\nPacking\nRoll Printing\nIroning and Packing\nStitching to Packing\nYarn\nCutting to Packing\nWashing\nRework(Piece)\nTransfer"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_combined_packing",
+   "fieldtype": "Check",
+   "label": "Is Combined Packing"
+  },
+  {
+   "depends_on": "is_combined_packing",
+   "fieldname": "process_name",
+   "fieldtype": "Link",
+   "label": "Process",
+   "options": "DocType"
+  },
+  {
+   "depends_on": "is_combined_packing",
+   "fieldname": "process_record",
+   "fieldtype": "Dynamic Link",
+   "label": "Process Record",
+   "options": "process_name"
+  },
+  {
+   "depends_on": "is_combined_packing",
+   "fieldname": "combined_ipds",
+   "fieldtype": "Table MultiSelect",
+   "label": "Combined IPDs",
+   "options": "Combined IPDs"
+  },
+  {
+   "depends_on": "eval: doc.docstatus != 1",
+   "fieldname": "administrator_section_section",
+   "fieldtype": "Section Break",
+   "label": "Administrator Section"
+  },
+  {
+   "depends_on": "eval:frappe.user.has_role('System Manager')",
+   "fieldname": "submit_internal_processes",
+   "fieldtype": "Button",
+   "label": "Submit Internal Processes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Item Production Detail",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "style",
+   "fieldtype": "Table",
+   "label": "Styles",
+   "options": "Item Production Detail Style"
+  },
+  {
+   "default": "0",
+   "fieldname": "ipd_submission_done",
+   "fieldtype": "Check",
+   "label": "IPD Submission Done",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "based_on_style",
+   "fieldtype": "Check",
+   "label": "Based on style"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_set_item",
+   "fieldtype": "Check",
+   "label": "Enable Set Item"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-08-17 19:49:18.958465",
+ "modified_by": "Administrator",
+ "module": "Apparelo",
+ "name": "Item Production Detail",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

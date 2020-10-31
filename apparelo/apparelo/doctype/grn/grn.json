@@ -1,0 +1,250 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2020-01-06 12:24:37.801707",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "supplier",
+  "lot",
+  "location",
+  "against_type",
+  "against_document",
+  "get_items",
+  "helper_section",
+  "select_helper",
+  "copy_over_section_section",
+  "from_field",
+  "to_field",
+  "copy_over",
+  "section_break_8",
+  "attribute",
+  "total_quantity_received",
+  "divide_total_quantity",
+  "column_break_11",
+  "attribute_value",
+  "section_break_11",
+  "return_materials",
+  "delete_unavailable_return_items",
+  "section_break_22",
+  "grn_cloth_quantity",
+  "amended_from",
+  "po"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lot",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lot",
+   "options": "Lot Creation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "get_items",
+   "fieldtype": "Button",
+   "label": "Get Items"
+  },
+  {
+   "default": "DC",
+   "fieldname": "against_type",
+   "fieldtype": "Select",
+   "label": "Against Type",
+   "options": "\nDC\nPurchase Order"
+  },
+  {
+   "fieldname": "against_document",
+   "fieldtype": "Dynamic Link",
+   "label": "Against Document",
+   "options": "against_type"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "GRN",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "GRN-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "return_materials",
+   "fieldtype": "Table",
+   "label": "Items Expected in Return",
+   "options": "GRN Return Materials"
+  },
+  {
+   "fieldname": "po",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Purchase_order"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.select_helper=='Divide Total Quantity' && doc.docstatus == 0",
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break",
+   "label": "Return Materials"
+  },
+  {
+   "fieldname": "divide_total_quantity",
+   "fieldtype": "Button",
+   "label": "Divide Total Quantity"
+  },
+  {
+   "fieldname": "total_quantity_received",
+   "fieldtype": "Float",
+   "label": "Total Quantity Received"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attribute",
+   "fieldtype": "Link",
+   "label": "Attribute",
+   "options": "Item Attribute"
+  },
+  {
+   "fieldname": "attribute_value",
+   "fieldtype": "Select",
+   "label": "Attribute Value"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval: doc.docstatus == 0",
+   "fieldname": "helper_section",
+   "fieldtype": "Section Break",
+   "label": "Helper Section"
+  },
+  {
+   "depends_on": "eval:doc.select_helper=='Copy Over' && doc.docstatus == 0",
+   "fieldname": "copy_over_section_section",
+   "fieldtype": "Section Break",
+   "label": "Copy Over Section"
+  },
+  {
+   "fieldname": "to_field",
+   "fieldtype": "Select",
+   "label": "To Field"
+  },
+  {
+   "fieldname": "from_field",
+   "fieldtype": "Select",
+   "label": "From Field"
+  },
+  {
+   "fieldname": "copy_over",
+   "fieldtype": "Button",
+   "label": "Copy Over"
+  },
+  {
+   "fieldname": "select_helper",
+   "fieldtype": "Select",
+   "label": "Select Helper"
+  },
+  {
+   "fieldname": "grn_cloth_quantity",
+   "fieldtype": "HTML Editor",
+   "label": "GRN Cloth Quantity"
+  },
+  {
+   "fieldname": "section_break_22",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "delete_unavailable_return_items",
+   "fieldtype": "Button",
+   "label": "Delete Unavailable Return Items"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-07-16 21:40:42.600003",
+ "modified_by": "Administrator",
+ "module": "Apparelo",
+ "name": "GRN",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Data Entry Operator",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Report Analyst",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

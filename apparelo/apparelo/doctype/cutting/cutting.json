@@ -1,0 +1,175 @@
+{
+ "actions": [],
+ "autoname": "Prompt",
+ "creation": "2019-10-03 13:01:29.281159",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_3",
+  "parts",
+  "get_size_combination",
+  "column_break_4",
+  "sizes",
+  "section_break_7",
+  "details",
+  "section_break_9",
+  "colour_parts",
+  "get_colour_combination",
+  "column_break_12",
+  "colours",
+  "based_on_style",
+  "styles",
+  "section_break_12",
+  "colour_mapping",
+  "additional_information",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Cutting Detail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "colour_mapping",
+   "fieldtype": "Table",
+   "label": "Colour Mapping",
+   "options": "Cutting colour details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval: doc.__islocal",
+   "depends_on": "eval: doc.docstatus == 0",
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "parts",
+   "fieldtype": "Table MultiSelect",
+   "label": "Parts",
+   "options": "Cutting Part"
+  },
+  {
+   "fieldname": "sizes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Sizes",
+   "options": "Cutting Size"
+  },
+  {
+   "fieldname": "get_size_combination",
+   "fieldtype": "Button",
+   "label": "Get size combination"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval: doc.__islocal",
+   "depends_on": "eval: doc.docstatus == 0",
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "colours",
+   "fieldtype": "Table MultiSelect",
+   "label": "Colours",
+   "options": "Cutting Colors"
+  },
+  {
+   "fieldname": "get_colour_combination",
+   "fieldtype": "Button",
+   "label": "Get colour combination"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "colour_parts",
+   "fieldtype": "Table MultiSelect",
+   "label": "Parts",
+   "options": "Cutting Part"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "based_on_style",
+   "fieldtype": "Check",
+   "label": "Based on style"
+  },
+  {
+   "depends_on": "based_on_style",
+   "fieldname": "styles",
+   "fieldtype": "Table MultiSelect",
+   "label": "Styles",
+   "options": "Cutting Styles"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cutting",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "additional_information",
+   "fieldtype": "Table",
+   "label": "Additional Information",
+   "options": "Additional Information Table"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-07-09 15:12:16.129674",
+ "modified_by": "Administrator",
+ "module": "Apparelo",
+ "name": "Cutting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Apparelo Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
