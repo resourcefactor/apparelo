@@ -18,28 +18,39 @@ class ItemProductionDetail(Document):
 	def before_insert(self):
 		if self.ipd_submission_done:
 			self.ipd_submission_done = 0
+	def before_submit(self):
+    		ipd_doc = self
+		# ipd_doc = frappe.get_doc("Item Production Detail", ipd)
+		item_templates = ipd_doc.create_item_templates()
+		ipd_list = ipd_doc.create_process_details()
+		ipd_item_mapping(ipd_list, ipd_doc.name, ipd_doc.item)
+		ipd_bom_mapping(ipd_list, ipd_doc.name, ipd_doc.item)
+		ipd_doc.ipd_submission_done = 1
+		# ipd_doc.docstatus = 1
+		ipd_doc.db_update()
+		
 	def on_submit(self):
-		if self.ipd_submission_done:
-			return
+		# if self.ipd_submission_done:
+		# 	return
 		self.validate_process_records()
 
-		enqueued_jobs = [d.get("job_name") for d in get_info()]
-		if self.name in enqueued_jobs:
-			frappe.throw(
-				_("Submission already in progress. Please wait for sometime.")
-			)
-		else:
-			enqueue(
-				submit_ipd,
-				queue="default",
-				timeout=6000,
-				event="ipd_submission",
-				job_name=self.name,
-				ipd=self.name
-			)
-			frappe.throw(
-				_("Submission job added to queue. Please check after sometime.")
-			)
+		# enqueued_jobs = [d.get("job_name") for d in get_info()]
+		# if self.name in enqueued_jobs:
+		# 	frappe.throw(
+		# 		_("Submission already in progress. Please wait for sometime.")
+		# 	)
+		# else:
+		# 	enqueue(
+		# 		submit_ipd,
+		# 		queue="default",
+		# 		timeout=6000,
+		# 		event="ipd_submission",
+		# 		job_name=self.name,
+		# 		ipd=self.name
+		# 	)
+		# 	frappe.throw(
+		# 		_("Submission job added to queue. Please check after sometime.")
+		# 	)
 
 	def create_item_templates(self):
 		template_item_codes_from_stitching = {"Stitching":" Stitched Cloth", "Checking":" Checked Cloth","Ironing":" Ironed Cloth"}
