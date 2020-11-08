@@ -19,8 +19,8 @@ class ItemProductionDetail(Document):
 		if self.ipd_submission_done:
 			self.ipd_submission_done = 0
 	def before_submit(self):
-    		ipd_doc = self
-		# ipd_doc = frappe.get_doc("Item Production Detail", ipd)
+		ipd_doc = self
+		#ipd_doc = frappe.get_doc("Item Production Detail", ipd)
 		item_templates = ipd_doc.create_item_templates()
 		ipd_list = ipd_doc.create_process_details()
 		ipd_item_mapping(ipd_list, ipd_doc.name, ipd_doc.item)
